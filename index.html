@@ -1,0 +1,44 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>To do list</title>
+    </head>
+    <body>
+        <!-- <h2>TO-DO-LIST</h2> -->
+        <div class="container">
+            <h2><u>TO-DO-LIST</u></h2>
+            <input type="text" id="iteminput" placeholder="type something">
+            <button onclick="add()">Add to Whishlist</button>
+            <div class="itemlist">
+                <!-- <li>jhelkow</li> -->
+                <!-- <li>jhelkow</li> -->
+                <!-- <li>jhelkow</li> -->
+                <!-- <li>jhelkow</li> -->
+
+            </div>
+        </div>
+        <script>
+            let Input= document.getElementById("iteminput");
+            let text = document.querySelector(".itemlist")
+            function add(){
+                if(Input.value==""){
+                    alert("enter the task");
+                }
+                else{
+                    let newElement = document.createElement("li");
+                    newElement.innerHTML=`${Input.value} "<i>click to delete </i>"`;
+                    text.appendChild(newElement);                               //<= use here only text.prepend(newElement);
+                    Input.value="";
+                    newElement.querySelector("i").addEventListener("click",remove);
+                    function remove(){
+                        newElement.remove();
+                    }
+
+                } // $ variable ko catch karne ke liye kiya jata hai
+            }
+        </script>
+    </body>
+    </html>
